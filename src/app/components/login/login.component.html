@@ -1,0 +1,42 @@
+<div class="login">
+    <div class="registeration py-4">
+        <div class="container mt-2">
+            <div>
+                <div class="userIcon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h2 class="fw-bolder text-center">Login</h2>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="submitloginForm(loginForm)">
+                <div class="formControl">
+                    <label for="name">Name:</label>
+                    <input formControlName="userName" class="form-control" type="text" value="userA">
+                    <div class="alerts alert alert-danger mt-2 py-1" *ngIf="loginForm.get('userName')?.errors != null && loginForm.get('userName')?.touched">
+                        <p class="mb-0" *ngIf="loginForm.get('userName')?.errors?.['required']">userName is required</p>
+                    <p class="mb-0" *ngIf="loginForm.get('userName')?.errors?.['userName']">userName is invalid</p>
+                    </div>  
+                </div>
+                <div class="formControl">
+                    <label for="password">Password:</label>
+                    <input formControlName="password" class="form-control" type="password" value="123A">
+                    <div class="alerts alert alert-danger mt-2 py-1" *ngIf="loginForm.get('password')?.errors != null && loginForm.get('password')?.touched">
+                        <p class="mb-0">Password is required</p>
+                    </div>
+                </div>
+                <div class="submission">
+                    <button type="submit" class="btn text-white mt-3" routerLink="/dashboard">login</button>
+                </div>
+            </form>
+            <div class="alert errorAlert alert-danger mt-3" *ngIf="error">Wrong user name or password</div>
+
+            <div class="testCases w-50 mx-auto pt-5">
+                <h3>Test Cases:</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Name: userA && Password: 123a</li>
+                    <li class="list-group-item">Name: userB && Password: 123b</li>
+                    <li class="list-group-item">Name: userC && Password: 123c</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

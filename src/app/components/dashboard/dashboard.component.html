@@ -1,0 +1,38 @@
+<div class="dashboard d-flex ">
+    <!-- Start of SideBar -->
+    <div class="sideBar d-flex flex-column bg-light me-5" style="width: 9rem;">
+        <ul class="nav nav-pills nav-flush flex-column mt-3 text-center">
+          <li class="nav-item">
+            <a routerLink="A" routerLinkActive="active" class="nav-link  py-3 border-bottom" aria-current="page">
+              User 'A'
+            </a>
+          </li>
+          <li>
+            <a routerLink="B" routerLinkActive="active" class="nav-link py-3 border-bottom">
+                User 'B'
+            </a>
+          </li>
+          <li>
+            <a routerLink="C" routerLinkActive="active" class="nav-link py-3 border-bottom">
+                User 'C'
+            </a>
+          </li>
+    
+          <li>
+            <a routerLink="/login" (click)="logout()" class="nav-link py-3 border-bottom">
+                Logout
+            </a>
+          </li>
+        </ul>
+    </div>
+    <!-- End of SideBar -->
+
+    <!-- Show only when user is not allowed to access a route -->
+    <div *ngIf="_Router.url == '/dashboard'" class="d-flex align-items-center justify-content-center align-items-center" style="height: 40vh;">
+      <h2>Click your own Tab.</h2>
+    </div>
+    
+    <router-outlet></router-outlet>
+</div>
+
+
